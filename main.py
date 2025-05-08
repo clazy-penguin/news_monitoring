@@ -1,11 +1,8 @@
+from src.webhook import send_message
+
 def main():
-    import requests
-    import os
-    from dotenv import load_dotenv
-    load_dotenv()
-    url = os.getenv("DISCORD_WEBHOOK_URL")
     content = "Hello, Discord!"
-    requests.post(url, json={"content": content})
+    send_message(content)
     
 if __name__ == "__main__":
     main()
