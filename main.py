@@ -1,8 +1,10 @@
+from collections import deque
+from time import sleep
+
 from src.webhook import send_message
 from src.finviz import scrap_finviz
 from src.db import insert_data
-from collections import deque
-from time import sleep
+from src.llm import translate
 
 def main():
     data = scrap_finviz()
@@ -15,7 +17,9 @@ def main():
             print(f'중복 뉴스 감지 : {title}')
             break
     for link, title in dq:
-        content = f"[{title}]({link})\n".strip()
+        title_ko = translate(title)
+        content = f"[{title_ko}]({link})\n"
+        content += f"({title})"
         sleep(1)
         send_message(content)
 
