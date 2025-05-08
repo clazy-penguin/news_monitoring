@@ -13,5 +13,5 @@ jobs:
         with:
           python-version: "3.13"
       - run: pip install uv
-      - run: uv pip sync uv.lock
+      - run: uv sync
       - run: uv run main.py
