@@ -1,9 +1,9 @@
-name: 5분에 한번 uv 실행
+name: 10분에 한번 uv 실행
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "5,10,15,20,25,30,35,40,45,50,55 * * * *"
+    - cron: "5,15,25,35,45,55 * * * *"
 
 jobs:
   run-uv-lock:
