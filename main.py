@@ -13,7 +13,8 @@ def main():
         try:
             insert_data('news', {'news_url': link})
             dq.appendleft((link, title)) # push 처리
-        except:
+        except Exception as e:
+            print(e)
             print(f'중복 뉴스 감지 : {title}')
             break
     for link, title in dq:
